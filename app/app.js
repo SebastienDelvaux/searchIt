@@ -4,7 +4,11 @@
 angular.module('myApp', [
   'ngRoute',
   'myApp.search'
-]).
-config(['$routeProvider', function($routeProvider) {
+])
+
+.constant('maxResults', 4)
+.constant('defaultZoom', 4)
+
+.config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/search'});
 }]);

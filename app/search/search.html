@@ -1,1 +1,10 @@
 <p>This is the partial for country search.</p>
+
+<input id="searchBar" class="form-control" type="text" ng-model="country" uib-typeahead="country.name for country in getCountries($viewValue)" typeahead-no-results="noResults" typeahead-on-select="countrySelected($item, $model, $label, $event)">
+<div ng-show="noResults">
+    <i class="glyphicon glyphicon-remove"></i> No Results Found
+</div>
+<span ng-show="serverError">Server is not available, sorry.</span>
+
+
+<ui-gmap-google-map center='map.center' zoom='map.zoom' ng-show="country"></ui-gmap-google-map>
